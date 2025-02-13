@@ -1,0 +1,14 @@
+/* Reset margin, padding, and box-sizing for all elements */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Set body dimensions, font, and background color */
+body {
+    height: 100vh; /* Set the height of the body to 100% of the viewport height */
+    width: 100vw; /* Set the width of the body to 100% of the viewport width */
+    font-family: 'Poppins', sans-serif; /* Set the font family for the body */
+    background-color: #a79c9c; /* Set the background color for the body */
+}

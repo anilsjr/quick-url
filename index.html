@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> <!-- Set the character encoding for the document -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Set the viewport to make the website responsive -->
+    <title>Quick URL</title> <!-- Set the title of the document -->
+    <link rel="stylesheet" href="style.css"> <!-- Link to the custom stylesheet -->
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"> <!-- Link to Bootstrap CSS -->
+</head>
+<body>
+    <div class="container"> <!-- Bootstrap container for responsive layout -->
+        <h2 class="my-4">Quick URL</h2> <!-- Page heading with margin -->
+        <form action="" class="form mb-4 d-flex justify-content-center flex-column"> <!-- Form with Bootstrap classes for styling -->
+            <div class="form-group">
+                <label for="name">Name:</label> <!-- Label for the name input field -->
+                <input type="text" id="name" class="form-control"> <!-- Name input field with Bootstrap class for styling -->
+            </div>
+            <div class="form-group">
+                <label for="link">Link:</label> <!-- Label for the link input field -->
+                <input type="text" id="link" class="form-control"> <!-- Link input field with Bootstrap class for styling -->
+            </div>
+            <button id="add-link" class="btn btn-primary mw-25">Add</button> <!-- Add button with Bootstrap classes for styling -->
+        </form>
+        <div id="links-container" class="row d-flex justify-content-center"> <!-- Container for dynamically added link boxes -->
+          <!-- Link boxes will be dynamically added here -->
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script> <!-- jQuery library -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script> <!-- Popper.js library -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> <!-- Bootstrap JavaScript -->
+    <script src="script.js"></script> <!-- Link to the custom JavaScript file -->
+</body>
+</html>
