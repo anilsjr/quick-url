@@ -13,70 +13,64 @@ if (!Array.isArray(links)) {
 }
 
 // Function to add a new link
-function addLink(){
-    let name = nameInput.value; 
-    let link = linkInput.value;
+function addLink(event) {
+    event.preventDefault(); // Prevent form submission reload
+
+    let name = nameInput.value.trim();
+    let link = linkInput.value.trim();
 
     // Validate input fields
-    if ((!name) || (!link)){
+    if (!name || !link) {
         alert("Please enter a name and a link");
         return;
     }
 
     // Create a new link object and add it to the links array
-    let newLink = {name, link};
+    let newLink = { name, link };
     links.push(newLink);
 
     // Save the updated links array to localStorage
     localStorage.setItem("links", JSON.stringify(links));
+
+    // Clear input fields
+    nameInput.value = '';
+    linkInput.value = '';
 
     // Render the updated list of links
     renderLinks();
 }
 
 // Function to delete a link by its index
-function deleteLink(index){
-    // Remove the link from the links array
+function deleteLink(index) {
     links.splice(index, 1);
-
-    // Save the updated links array to localStorage
     localStorage.setItem("links", JSON.stringify(links));
-
-    // Render the updated list of links
     renderLinks();
 }
 
 // Function to render the list of links
-function renderLinks(){
-    // Clear the container before rendering
+function renderLinks() {
     linksContainer.innerHTML = '';
 
-    // Iterate over the links array and create elements for each link
     links.forEach((link, index) => {
         let linkBox = document.createElement('div');
-        linkBox.classList.add('link-box', 'list-group-item', 'border', 'border-primary', 'd-flex', 'justify-content-between', 'align-items-center', 'my-2', 'mx-1', 'p-2', 'col-5', 'col-md-4', 'col-lg-2');
+        linkBox.classList.add('link-box', 'list-group-item', 'd-flex', 'justify-content-between', 'align-items-center', 'p-3', 'col-12', 'col-md-5', 'col-lg-3', 'shadow-sm');
 
         let linkElement = document.createElement('a');
-        linkElement.classList.add('link-name', 'text-decoration-none', 'text-dark');
-
-        let deleteButton = document.createElement('button');
-        deleteButton.classList.add('delete-button', 'btn', 'btn-danger');
-        
-        deleteButton.innerText = 'Delete';
-        
+        linkElement.classList.add('text-decoration-none', 'fw-bold', 'text-primary', 'text-truncate');
         linkElement.href = link.link;
         linkElement.innerText = link.name;
+        linkElement.target = "_blank"; // Open link in new tab
+
+        let deleteButton = document.createElement('button');
+        deleteButton.classList.add('btn', 'btn-sm', 'btn-danger', 'ms-3');
+        deleteButton.innerText = 'Delete';
 
         // Add event listener to the delete button
-        deleteButton.addEventListener('click', () => {
-            deleteLink(index);
-        });
+        deleteButton.addEventListener('click', () => deleteLink(index));
 
-        // Append the link and delete button to the link box
+        // Append elements
         linkBox.appendChild(linkElement);
         linkBox.appendChild(deleteButton);
-
-        // Append the link box to the container
         linksContainer.appendChild(linkBox);
     });
 }
