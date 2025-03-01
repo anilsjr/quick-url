@@ -1,5 +1,5 @@
 # quick-url
-
+live : https://anilsjr.github.io/quick-url 
 ## Summary
 Quick-url is a web application designed to efficiently manage and shorten URLs. It provides a simple and intuitive interface for creating short links from long URLs, making them easier to share and track.
 
